@@ -1,10 +1,44 @@
 <html>
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
- </head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+</head>
 <body>
-<div class='border border-green w-full p-6 bg-green-lighter text-white font-big'>
-    Hier Come the Hand Control
+
+<div id='main'>
+    <div id='menu'>
+        <div class='m-3 w-full h-20px'>
+            <button class='w-full h-10 bg-blue border-transparent border-1 border-solid text-white'>
+                Connect
+            </button>
+        </div>
+        <div class='content flex justify-between m-4 p-4 bg-grey-lighter'>
+            <div id='control' class='bg-white w-1/2'>
+                <div id='control___top' class='flex'>
+                    <div class='m-auto w-10 h-10 bg-green'>A</div>
+                </div>
+                <div id='control___middle' class='flex justify-between mb-3 mt-3'>
+                    <div class='w-10 h-10 bg-blue-light'>A</div>
+                    <div id='controll___middle__center' class='b-radius-0 bg-red w-10 h-10'></div>
+                    <div class='w-10 h-10 bg-orange'>C</div>
+                </div>
+                <div id='control___down' class='flex'>
+                    <div class='m-auto arrow_down w-10 h-10 bg-grey'>E</div>
+                </div>
+            </div>
+            <div id='command' class='bg-white'>
+                <div class='flex justify-between mb-3 mt-3 '>
+                    <div class='w-10 h-10 bg-blue-light mr-3 flex items-center'>
+                        <span class='m-auto'>Open</span>
+                    </div>
+                    <div class='w-10 h-10 bg-orange flex items-center'>
+                        <span class='m-auto'>Close</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 </body>
 </html>
