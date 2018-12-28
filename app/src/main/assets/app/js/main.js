@@ -1,6 +1,4 @@
 
-console.log(HRI);
-
 const onFingerClick = (fingerNr) =>
     HRI.onFingerClick(fingerNr)
 
