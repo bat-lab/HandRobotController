@@ -1,0 +1,10 @@
+body {
+  padding: 5%;
+}
+
+.circle {
+     height: 35px;
+     width: 35px;
+     border-radius: 35px;
+     background: green;
+}
