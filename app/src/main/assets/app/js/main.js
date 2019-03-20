@@ -20,3 +20,5 @@ const goTop = () =>
 const goBottom = () =>
     HRI.goBottom()
 
+const onConnectBt = () =>
+    HRI.onConnectBt()

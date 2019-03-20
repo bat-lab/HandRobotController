@@ -3,8 +3,16 @@ package de.hsm.handrobotcontroller;
 import android.content.Context;
 import android.webkit.JavascriptInterface;
 
+import java.io.IOException;
+
 public class HandRoboterInterface {
     Context context;
+
+    private final BtService btService;
+
+    public HandRoboterInterface(final BtService btService) {
+        this.btService = btService;
+    }
 
     @JavascriptInterface
     public void handClose() {
@@ -24,6 +32,11 @@ public class HandRoboterInterface {
     @JavascriptInterface
     public void goLeft() {
         System.out.println("Go Left");
+    }
+
+    @JavascriptInterface
+    public void onConnectBt() throws IOException {
+        this.btService.activate();
     }
 
     @JavascriptInterface

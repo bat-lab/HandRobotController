@@ -1,12 +1,10 @@
 package de.hsm.handrobotcontroller;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -17,13 +15,14 @@ import im.delight.android.webview.AdvancedWebView;
 
 public class MainActivity extends AppCompatActivity implements AdvancedWebView.Listener {
     private AdvancedWebView mWebView;
-    private final HandRoboterInterface handRoboterInterface = new HandRoboterInterface();
+
+    private BtService btService = null;
+    private HandRoboterInterface handRoboterInterface = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mWebView = (AdvancedWebView) findViewById(R.id.webview);
         mWebView.setListener(this, this);
         mWebView.setGeolocationEnabled(false);
@@ -40,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements AdvancedWebView.L
         });
 
         mWebView.setWebChromeClient(new WebChromeClient() {
-
             @Override
             public void onReceivedTitle(WebView view, String title) {
                 super.onReceivedTitle(view, title);
@@ -48,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements AdvancedWebView.L
             }
 
         });
+
+        this.btService = new BtService(this);
+        this.handRoboterInterface  = new HandRoboterInterface(this.btService);
 
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.addJavascriptInterface(handRoboterInterface, "HRI");
